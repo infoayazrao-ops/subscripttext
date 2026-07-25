@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Canonical: / is the main homepage.
+# If a user (or crawler) requests /index.html, redirect to the canonical URL.
+RewriteRule ^index\.html$ / [R=301,L]
+

@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Secrets / env
+.env
+.env.*
+
+# Hostinger / local backups (do not commit)
+*.tar.gz
+*.sql
+*.sql.gz
+*.zip
+buycubikwebsubscripttext.com.txt
+transcript.txt
