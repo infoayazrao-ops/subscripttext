@@ -68,3 +68,23 @@ This document explains how new blog articles map to your GSC queries, Google Tre
 - `subscript-vs-superscript.html`
 
 Updated: `blog.html`, `sitemap.xml`.
+
+---
+
+## Week 1 gap-fill (2026-07-31) — Google-first / helpful content
+
+Focus: deepen existing P0 pages (no new thin URLs). Answer-first copy, clear tool CTAs, internal links, FAQ + FAQPage where missing.
+
+| Page | Changes |
+|------|---------|
+| `index.html` | Intro CTA phrases; `#tool` anchor; superscript quick chips (x², m², E=mc²) via `data-type`; Related guides strip after tool |
+| `superscript-generator-copy-paste.html` | Early CTA; examples; Related guides; expanded FAQ + FAQPage; `dateModified` |
+| `subscript-numbers-symbols-copy-paste.html` | Early CTA; Formula section; Related + FAQ + FAQPage; `dateModified` |
+| `script.js` | Example chips honor `data-type` (switch Subscript/Superscript) |
+| `styles.css` | `.related-guides`, `.quick-try-note` |
+| `sitemap.xml` | `lastmod` bumped for `/`, superscript, numbers pages |
+
+**Week 2 preview:** deepen Word + Google Docs guides (shortcuts + Unicode fallback + tool CTA), then WhatsApp/PowerPoint/CO₂ as needed.
+
+**Link map (tool hub):**
+Homepage `#tool` ← Superscript lander, Numbers lander, Word, Docs, WhatsApp guides.

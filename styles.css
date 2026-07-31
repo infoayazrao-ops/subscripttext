@@ -237,6 +237,43 @@ body {
   font-weight: 500;
   color: var(--text-muted);
 }
+.quick-try-note {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.related-guides {
+  margin-top: 16px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.related-guides-title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.related-guides-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.related-guides-list a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.related-guides-list a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
 .example-chip {
   display: inline-flex;
   align-items: center;

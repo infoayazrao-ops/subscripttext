@@ -865,6 +865,11 @@
     document.querySelectorAll('.example-chip[data-example]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var example = btn.getAttribute('data-example');
+        var type = btn.getAttribute('data-type');
+        if (type) {
+          var typeBtn = document.querySelector('.conv-btn[data-type="' + type + '"]');
+          if (typeBtn) typeBtn.click();
+        }
         if (inputEl && example != null) {
           inputEl.value = example;
           inputEl.focus();
