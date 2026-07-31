@@ -253,8 +253,12 @@ body {
 }
 .example-chip:hover {
   border-color: var(--accent);
-  color: var(--accent-hover);
+  color: var(--chip-text);
   background: var(--accent-soft);
+  filter: brightness(1.08);
+}
+body.light .example-chip:hover {
+  color: var(--accent-hover);
   filter: brightness(0.97);
 }
 .example-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -1049,7 +1053,12 @@ body.light .footer-badge--purple {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background: var(--accent-soft);
-  color: var(--accent-hover);
+  color: var(--chip-text);
+}
+body.dark .blog-tag {
+  background: #1e3a8a;
+  color: #dbeafe;
+  border: 1px solid #3b82f6;
 }
 .blog-card-title {
   margin: 4px 0 0 0;
