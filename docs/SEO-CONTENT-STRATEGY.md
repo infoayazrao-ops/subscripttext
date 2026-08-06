@@ -84,7 +84,20 @@ Focus: deepen existing P0 pages (no new thin URLs). Answer-first copy, clear too
 | `styles.css` | `.related-guides`, `.quick-try-note` |
 | `sitemap.xml` | `lastmod` bumped for `/`, superscript, numbers pages |
 
-**Week 2 preview:** deepen Word + Google Docs guides (shortcuts + Unicode fallback + tool CTA), then WhatsApp/PowerPoint/CO₂ as needed.
+## Week 2 deepen (2026-08-06) — useful depth vs competitor fluff
+
+Target ~800–1200 words of real value per priority guide (not SuperSubscript-style mega dumps). Split pages kept.
+
+| Page | Changes |
+|------|---------|
+| `word-subscript-superscript.html` | Win/Mac shortcuts, when-to-use Unicode, examples table, Related, expanded FAQ + FAQPage, early `/#tool` CTA, `dateModified` |
+| `google-docs-subscript-superscript.html` | How to type/make, mobile, examples, Related, Rising FAQs, tool CTA, `dateModified` |
+| `superscript-generator-copy-paste.html` | Generator / example / 2 / numbers / opposite sections; Docs+Word links; FAQ expand |
+| `subscript-vs-superscript.html` | Opposite both ways, comparison + examples tables, FAQPage, Related |
+| `index.html` | Related guides: added vs page |
+| `sitemap.xml` | `lastmod` bumped for Word, Docs, super, vs |
+
+**Week 3 preview:** Excel + PowerPoint (+ Mac lines), then WhatsApp/CO₂ as needed.
 
 **Link map (tool hub):**
-Homepage `#tool` ← Superscript lander, Numbers lander, Word, Docs, WhatsApp guides.
+Homepage `#tool` ← Superscript lander, Numbers lander, Word, Docs, vs, WhatsApp guides.
