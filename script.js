@@ -109,10 +109,10 @@
     var len = text.length;
     while (i < len) {
       var letterStart = i;
-      while (i < len && /[A-Za-z]/.test(text[i])) i++;
+      while (i < len && isAsciiLetter(text[i])) i++;
       if (i > letterStart) {
         var digitStart = i;
-        while (i < len && /\d/.test(text[i])) i++;
+        while (i < len && isAsciiDigit(text[i])) i++;
         if (i > digitStart) {
           out += text.slice(letterStart, digitStart) + digitsToSubscript(text.slice(digitStart, i), opts);
           continue;
@@ -175,10 +175,10 @@
     var len = text.length;
     while (i < len) {
       var letterStart = i;
-      while (i < len && /[A-Za-z]/.test(text[i])) i++;
+      while (i < len && isAsciiLetter(text[i])) i++;
       if (i > letterStart) {
         var digitStart = i;
-        while (i < len && /\d/.test(text[i])) i++;
+        while (i < len && isAsciiDigit(text[i])) i++;
         if (i > digitStart) {
           out += text.slice(letterStart, digitStart) + digitsToSuperscript(text.slice(digitStart, i), opts);
           continue;
@@ -267,9 +267,29 @@
   let copyBtn, downloadBtn, clearBtn, convertSelectionBtn;
   let inputCharsEl, inputSizeEl, outputCharsEl, outputSizeEl, inputWordsEl, outputWordsEl;
 
+  var utf8Encoder = typeof TextEncoder !== 'undefined' ? new TextEncoder() : null;
   function byteSize(str) {
-    if (typeof str !== 'string') return 0;
-    return new Blob([str]).size;
+    if (typeof str !== 'string' || !str) return 0;
+    // Avoid Blob allocation (forced work / main-thread cost on every keystroke)
+    if (utf8Encoder) return utf8Encoder.encode(str).length;
+    var bytes = 0;
+    for (var i = 0; i < str.length; i++) {
+      var c = str.charCodeAt(i);
+      if (c <= 0x7f) bytes += 1;
+      else if (c <= 0x7ff) bytes += 2;
+      else if (c >= 0xd800 && c <= 0xdbff) { bytes += 4; i++; }
+      else bytes += 3;
+    }
+    return bytes;
+  }
+
+  function isAsciiLetter(ch) {
+    var c = ch.charCodeAt(0);
+    return (c >= 65 && c <= 90) || (c >= 97 && c <= 122);
+  }
+  function isAsciiDigit(ch) {
+    var c = ch.charCodeAt(0);
+    return c >= 48 && c <= 57;
   }
 
   function wordCount(str) {
@@ -356,6 +376,7 @@
    * that part in the output; rest of output is plain text. If no selection,
    * convert full input. Preserves cursor/selection (we only change output).
    */
+  var outputRaf = 0;
   function updateOutput() {
     if (!inputEl || !outputEl) return;
     var text = inputEl.value;
@@ -374,6 +395,14 @@
     updateStats();
   }
 
+  function scheduleUpdateOutput() {
+    if (outputRaf) return;
+    outputRaf = requestAnimationFrame(function () {
+      outputRaf = 0;
+      if (getAuto()) updateOutput();
+    });
+  }
+
   function updateCopyButtonState() {
     if (copyBtn) copyBtn.disabled = !outputEl || !outputEl.value.length;
   }
@@ -385,15 +414,12 @@
   }
 
   function bindLiveConversion() {
-    function maybeUpdateOutput() {
-      if (getAuto()) updateOutput();
-    }
     if (inputEl) {
-      inputEl.addEventListener('input', maybeUpdateOutput);
-      inputEl.addEventListener('change', maybeUpdateOutput);
-      inputEl.addEventListener('select', maybeUpdateOutput);
-      inputEl.addEventListener('mouseup', maybeUpdateOutput);
-      inputEl.addEventListener('keyup', maybeUpdateOutput);
+      // input covers typing/paste; select covers selection-only conversion.
+      // Avoid keyup/mouseup (extra layout reads + duplicate work).
+      inputEl.addEventListener('input', scheduleUpdateOutput);
+      inputEl.addEventListener('change', scheduleUpdateOutput);
+      inputEl.addEventListener('select', scheduleUpdateOutput);
     }
     if (modeRadios && modeRadios.length) {
       modeRadios.forEach(function (r) {
@@ -444,8 +470,8 @@
     }
     var ignoreEl = document.getElementById('ignoreChars');
     if (ignoreEl) {
-      ignoreEl.addEventListener('input', maybeUpdateOutput);
-      ignoreEl.addEventListener('change', maybeUpdateOutput);
+      ignoreEl.addEventListener('input', scheduleUpdateOutput);
+      ignoreEl.addEventListener('change', scheduleUpdateOutput);
     }
   }
 
@@ -711,70 +737,14 @@
     updateOutput();
   }
 
-  var THEME_KEY = 'subscript-generator-theme';
-
-  function getTheme() {
-    try {
-      var saved = localStorage.getItem(THEME_KEY);
-      if (saved === 'dark' || saved === 'light') return saved;
-    } catch (e) {}
-    return 'dark';
-  }
-
-  function setTheme(theme) {
-    var b = document.body;
-    if (theme === 'light') {
-      b.classList.remove('dark');
-      b.classList.add('light');
-      try { localStorage.setItem(THEME_KEY, 'light'); } catch (e) {}
-    } else {
-      b.classList.add('dark');
-      b.classList.remove('light');
-      try { localStorage.setItem(THEME_KEY, 'dark'); } catch (e) {}
-    }
-    var label = document.getElementById('themeLabel');
-    if (label) label.textContent = theme === 'dark' ? 'Light' : 'Dark';
-  }
+  // Theme + dropdowns live in site.js (shared). Converter-only below.
 
   function init() {
-    var savedTheme = getTheme();
-    setTheme(savedTheme);
-    var themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', function () {
-        var isLight = document.body.classList.contains('light');
-        setTheme(isLight ? 'dark' : 'light');
-      });
-    }
-
-    // Simple header dropdowns for "Legal" / other groups
-    var dropdownToggles = document.querySelectorAll('.topbar-dropdown-toggle');
-    if (dropdownToggles && dropdownToggles.length) {
-      dropdownToggles.forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          var parent = btn.closest('.topbar-dropdown');
-          if (!parent) return;
-          var isOpen = parent.classList.contains('open');
-          document.querySelectorAll('.topbar-dropdown.open').forEach(function (d) {
-            if (d !== parent) d.classList.remove('open');
-          });
-          if (!isOpen) parent.classList.add('open');
-          else parent.classList.remove('open');
-        });
-      });
-      document.addEventListener('click', function (e) {
-        if (!e.target.closest('.topbar-dropdown')) {
-          document.querySelectorAll('.topbar-dropdown.open').forEach(function (d) {
-            d.classList.remove('open');
-          });
-        }
-      });
-    }
-
     inputEl = document.getElementById('inputText');
     outputEl = document.getElementById('outputText');
+    // Converter UI only exists on the homepage tool — bail early elsewhere.
+    if (!inputEl || !outputEl) return;
+
     modeRadios = document.querySelectorAll('input[name="conversionMode"]');
     optNumbers = document.getElementById('optNumbers');
     optLetters = document.getElementById('optLetters');
