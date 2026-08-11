@@ -29,7 +29,8 @@
   <meta name="twitter:description" content="Write CO2 and H2O with subscript numbers. Free generator for chemistry formulas. Copy paste into Word, Docs, and PowerPoint.">
   <meta name="twitter:image" content="https://subscripttext.com/subscript_generator_logo.webp">
   <meta name="twitter:image:alt" content="Subscript Generator logo">
-  <link rel="preload" href="subscript_generator_logo.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="subscript_generator_logo_160.webp 160w, subscript_generator_logo.webp 300w" imagesizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 150px">
+  <link rel="preload" href="subscript_generator_logo_160.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" href="subscript_generator_logo.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="preload" href="styles.min.css" as="style">
   <link rel="stylesheet" href="styles.min.css">
   <script type="application/ld+json">
@@ -73,13 +74,24 @@
   </script>
 </head>
 <body class="dark">
+  <script>
+  (function () {
+    try {
+      var t = localStorage.getItem('subscript-generator-theme');
+      if (t === 'light') {
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
+      }
+    } catch (e) {}
+  })();
+</script>
   <header class="topbar" role="banner">
     <div class="topbar-left">
       <h1>CO₂ &amp; H₂O Subscript</h1>
       <p class="trust-line">Chemistry formulas with real Unicode subscript, copy from our free <a href="/">subscript generator</a> into Word, Docs, slides, and more.</p>
     </div>
     <div class="topbar-center">
-      <a href="/"><img src="subscript_generator_logo.webp" srcset="subscript_generator_logo_160.webp 160w, subscript_generator_logo.webp 300w" sizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 150px" alt="Subscript Generator logo" width="150" height="150" class="topbar-logo" decoding="async" fetchpriority="high"></a>
+      <a href="/"><img src="subscript_generator_logo.webp" srcset="subscript_generator_logo_160.webp 160w, subscript_generator_logo.webp 300w" sizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 150px" alt="Subscript Generator logo" width="150" height="150" class="topbar-logo" decoding="sync" fetchpriority="high"></a>
     </div>
     <div class="topbar-right">
       <nav class="topbar-nav" aria-label="Site navigation">

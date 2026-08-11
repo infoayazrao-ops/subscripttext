@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SD7DH5Y4P"></script>
   <script>
@@ -11,8 +13,6 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2138716335630144"
        crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Subscript &amp; Superscript Generator | Copy-Paste CO₂, H₂O, x²</title>
   <meta name="description" content="Free superscript and subscript generator online. Instantly convert to Unicode ² ³ or ₂ ₓ. Copy paste CO₂, H₂O for chemistry, math, physics, WordPress.">
   <meta name="robots" content="index, follow">
@@ -31,7 +31,8 @@
   <meta name="twitter:description" content="Free superscript and subscript generator online. Instantly convert to Unicode ² ³ or ₂ ₓ. Copy paste CO₂, H₂O for chemistry, math, physics, WordPress.">
   <meta name="twitter:image" content="https://subscripttext.com/subscript_generator_logo.webp">
   <meta name="twitter:image:alt" content="Subscript Generator logo">
-  <link rel="preload" href="subscript_generator_logo.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="subscript_generator_logo_160.webp 160w, subscript_generator_logo.webp 300w" imagesizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 150px">
+  <link rel="preload" href="subscript_generator_logo_160.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" href="subscript_generator_logo.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="preload" href="styles.min.css" as="style">
   <link rel="stylesheet" href="styles.min.css">
   <script type="application/ld+json">
@@ -104,13 +105,24 @@
   </script>
 </head>
 <body class="dark">
+  <script>
+  (function () {
+    try {
+      var t = localStorage.getItem('subscript-generator-theme');
+      if (t === 'light') {
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
+      }
+    } catch (e) {}
+  })();
+</script>
   <header class="topbar" role="banner">
   <div class="topbar-left">
       <h1>Subscript &amp; Superscript Generator | Copy &amp; Paste (CO₂, H₂O, x₁)</h1>
       <p class="trust-line">Superscript and subscript generator online tool, free. Instant Unicode conversion for chemistry, math, Word, Docs, WhatsApp, and WordPress. No install, no login.</p>
     </div>
     <div class="topbar-center">
-      <a href="/"><img src="subscript_generator_logo.webp" srcset="subscript_generator_logo_160.webp 160w, subscript_generator_logo.webp 300w" sizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 150px" alt="Subscript Generator logo" width="150" height="150" class="topbar-logo" decoding="async" fetchpriority="high"></a>
+      <a href="/"><img src="subscript_generator_logo.webp" srcset="subscript_generator_logo_160.webp 160w, subscript_generator_logo.webp 300w" sizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 150px" alt="Subscript Generator logo" width="150" height="150" class="topbar-logo" decoding="sync" fetchpriority="high"></a>
     </div>
     <div class="topbar-right">
       <nav class="topbar-nav" aria-label="Site navigation">
