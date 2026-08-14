@@ -97,7 +97,18 @@ Target ~800–1200 words of real value per priority guide (not SuperSubscript-st
 | `index.html` | Related guides: added vs page |
 | `sitemap.xml` | `lastmod` bumped for Word, Docs, super, vs |
 
-**Week 3 preview:** Excel + PowerPoint (+ Mac lines), then WhatsApp/CO₂ as needed.
+**Week 3 deepen (2026-08-14):** Excel + PowerPoint (+ Mac lines), then WhatsApp/CO₂ polish.
+
+| Page | Changes |
+|------|---------|
+| `excel-subscript-superscript.html` | Format Cells Win/Mac, `^` vs Unicode, examples, mistakes, Related, expanded FAQ + FAQPage, `/#tool` CTA |
+| `subscript-in-powerpoint.html` | Win/Mac shortcut table, Unicode examples, FAQPage, Related, early CTA |
+| `subscript-in-whatsapp.html` | Early CTA, Related, FAQPage, `/#tool` links |
+| `co2-h2o-subscript-copy-paste.html` | Formula table, Related, FAQPage, early CTA |
+| `index.html` | Related guides: Excel + PowerPoint |
+| `sitemap.xml` | `lastmod` for Excel, PPT, WhatsApp, CO₂ |
+
+**Week 4 preview:** screenshots on how-to guides (optional polish), Canva/Slides only if Trends demand persists.
 
 **Link map (tool hub):**
-Homepage `#tool` ← Superscript lander, Numbers lander, Word, Docs, vs, WhatsApp guides.
+Homepage `#tool` ← Superscript, Numbers, Word, Docs, Excel, PPT, vs, WhatsApp, CO₂ guides.

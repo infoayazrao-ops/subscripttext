@@ -56,7 +56,7 @@
         "image": ["https://subscripttext.com/subscript_generator_logo.webp"],
         "mainEntityOfPage": { "@type": "WebPage", "@id": "https://subscripttext.com/excel-subscript-superscript.html" },
         "datePublished": "2026-05-02",
-        "dateModified": "2026-05-02"
+        "dateModified": "2026-08-14"
       },
       {
         "@type": "HowTo",
@@ -74,8 +74,28 @@
         "mainEntity": [
           {
             "@type": "Question",
+            "name": "How do I type subscript in Excel?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Edit the cell (F2), select the characters to lower, press Ctrl + 1 (⌘ + 1 on Mac), check Subscript on the Font tab, and click OK. Or paste Unicode from the free Subscript Generator." }
+          },
+          {
+            "@type": "Question",
             "name": "Can Excel subscript work in formulas?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No, formatting is for display. Calculations use ^ or POWER." }
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Cell Font subscript/superscript is display-only. For calculations use =A1^2 or =POWER(A1,2)." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I put m² or CO₂ in an Excel cell?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Generate m² or CO₂ with the online Subscript Generator (Superscript for m², Formula + Numbers Only for CO₂), copy, and paste into the cell as plain text." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Excel shortcut for Format Cells?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ctrl + 1 on Windows or ⌘ + 1 on Mac opens Format Cells, where you can check Subscript or Superscript under Font Effects." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does superscript formatting change calculated values?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Raising a digit with Font Superscript only changes how the label looks. Use the caret ^ or POWER() for real exponents in formulas." }
           }
         ]
       }
@@ -98,7 +118,7 @@
   <header class="topbar" role="banner">
     <div class="topbar-left">
       <h1>Subscript and Superscript in Excel</h1>
-      <p class="trust-line">Format cells (Ctrl+1), use ^ in formulas, or paste Unicode like m² and CO₂ from our free <a href="/">subscript generator</a>.</p>
+      <p class="trust-line">Format cells (Ctrl+1), use ^ in formulas, or paste Unicode like m² and CO₂ from our free <a href="/#tool">subscript generator</a>.</p>
     </div>
     <div class="topbar-center">
       <a href="/"><img src="subscript_generator_logo.webp" srcset="subscript_generator_logo_160.webp 160w, subscript_generator_logo.webp 300w" sizes="(max-width: 480px) 64px, (max-width: 768px) 80px, 150px" alt="Subscript Generator logo" width="150" height="150" class="topbar-logo" decoding="sync" fetchpriority="high"></a>
@@ -131,40 +151,120 @@
     <article class="content-below" aria-labelledby="excel-main">
       <header class="content-section seo-section">
         <h2 id="excel-main">How do you type subscript or superscript in Excel?</h2>
-        <p class="aeo-answer" role="note"><strong>Display labels:</strong> Select cell text, press <strong>Ctrl + 1</strong>, pick Subscript or Superscript, or paste Unicode m² and CO₂ from our <a href="/">generator</a>. <strong>Math:</strong> use <code>=A1^2</code> in formulas; cell subscript formatting does not change calculation results.</p>
+        <p class="aeo-answer" role="note"><strong>Display labels:</strong> Select cell text, press <strong>Ctrl + 1</strong> (⌘ + 1 on Mac), pick Subscript or Superscript, or paste Unicode m² and CO₂ from our <a href="/#tool">generator</a>. <strong>Math:</strong> use <code>=A1^2</code> in formulas; cell Font formatting does not change calculation results.</p>
+        <p>Excel treats “pretty” subscript in a label differently from real powers in a formula. Mixing them up is the most common mistake on this topic.</p>
       </header>
 
+      <div class="cta-banner-wrap" style="padding: 0 0 8px;">
+        <div class="contact-cta-banner">
+          <div class="contact-cta-text">
+            <p class="contact-cta-headline">Paste m² or CO₂ into any cell</p>
+            <p class="contact-cta-desc">Free Unicode tool—choose Superscript or Formula mode, copy, paste. No signup.</p>
+          </div>
+          <a href="/#tool" class="contact-cta-btn">Open Tool</a>
+        </div>
+      </div>
+
+      <section class="content-section seo-section" aria-labelledby="excel-when">
+        <h3 id="excel-when">When to use Format Cells vs ^ vs Unicode</h3>
+        <ul>
+          <li><strong>Column headers and labels only:</strong> Format Cells → Subscript / Superscript, or paste Unicode.</li>
+          <li><strong>Calculations:</strong> Use <code>^</code> or <code>POWER()</code>. Never rely on Font superscript for math.</li>
+          <li><strong>Same text in Word, email, or WhatsApp later:</strong> Prefer Unicode from the <a href="/#tool">generator</a> so symbols travel as plain text.</li>
+        </ul>
+      </section>
+
       <section class="content-section seo-section" aria-labelledby="excel-format">
-        <h3 id="excel-format">Format Part of a Cell as Subscript or Superscript</h3>
+        <h3 id="excel-format">Method 1: Format part of a cell (Windows and Mac)</h3>
         <ol>
           <li>Click the cell and press <strong>F2</strong> to edit (or double-click the cell).</li>
-          <li>Select only the characters you want raised or lowered (for example the <code>2</code> in m2).</li>
+          <li>Select only the characters you want raised or lowered (for example the <code>2</code> in <code>m2</code> or <code>H2O</code>).</li>
           <li>Press <strong>Ctrl + 1</strong> (Windows) or <strong>⌘ + 1</strong> (Mac) to open <strong>Format Cells</strong>.</li>
-          <li>On the <strong>Font</strong> tab, check <strong>Subscript</strong> or <strong>Superscript</strong>, then click OK.</li>
+          <li>On the <strong>Font</strong> tab, under Effects, check <strong>Subscript</strong> or <strong>Superscript</strong>, then click OK.</li>
         </ol>
-        <p>This is the standard way to get <strong>Excel subscript</strong> or superscript inside a label.</p>
+        <p>You can also right-click the selected characters → <strong>Format Cells</strong>. This is the standard way to get <strong>subscript in Excel</strong> or superscript inside a text label. On Mac Excel for Microsoft 365 the same Font Effects checkboxes appear; if ⌘ + 1 does not open the dialog, use the Format menu → Cells.</p>
+        <div class="char-table-wrap" role="region" aria-label="Excel Format Cells shortcuts">
+          <table class="char-table char-table--na">
+            <thead><tr><th>Action</th><th>Windows</th><th>Mac</th></tr></thead>
+            <tbody>
+              <tr><td>Edit cell</td><td>F2</td><td>F2 or Control + U</td></tr>
+              <tr><td>Format Cells</td><td>Ctrl + 1</td><td>⌘ + 1</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="content-section seo-section" aria-labelledby="excel-powers">
-        <h3 id="excel-powers">Exponents in Formulas (Not the Same as Superscript Text)</h3>
-        <p>To calculate powers, use the caret: <code>=A1^2</code> means “A1 squared.” The <code>POWER()</code> function does the same thing. This is how to <strong>type exponents in Excel</strong> for math, not for pretty printing in a header.</p>
+        <h3 id="excel-powers">Method 2: Exponents in formulas (^ and POWER)</h3>
+        <p>To <strong>calculate</strong> powers, do not use Font Superscript. Use the caret or the POWER function:</p>
+        <ul>
+          <li><code>=A1^2</code> — A1 squared</li>
+          <li><code>=POWER(A1,2)</code> — same result</li>
+          <li><code>=10^3</code> — one thousand</li>
+        </ul>
+        <p>The sheet shows a normal number result. If you need the label “m²” next to a value, put the Unicode or formatted text in a separate cell or concatenate display text after the calculation.</p>
       </section>
 
       <section class="content-section seo-section" aria-labelledby="excel-unicode">
-        <h3 id="excel-unicode">Paste Unicode m², CO₂, x₃ into Cells</h3>
-        <p>Unicode characters work in Excel cells like normal text. Use our <a href="/">subscript and superscript generator</a> to build symbols, then paste:</p>
+        <h3 id="excel-unicode">Method 3: Paste Unicode m², CO₂, x₁ into cells</h3>
+        <p>Unicode characters behave like normal text in Excel. Use our <a href="/#tool">subscript and superscript generator</a>:</p>
+        <ol>
+          <li>Open the tool and type <code>m2</code>, <code>CO2</code>, or <code>x1</code>.</li>
+          <li>Choose <strong>Superscript</strong> for units like m², or <strong>Subscript</strong> / <strong>Formula</strong> + <strong>Numbers Only: On</strong> for chemistry.</li>
+          <li>Click <strong>Copy</strong> and paste into the cell (Ctrl + V / ⌘ + V).</li>
+        </ol>
         <ul>
-          <li><strong>Area:</strong> m², cm³</li>
-          <li><strong>Chemistry:</strong> CO₂, H₂O (use Formula mode + Numbers Only on the generator)</li>
+          <li><strong>Area / volume:</strong> m², cm³</li>
+          <li><strong>Chemistry:</strong> CO₂, H₂O — see also <a href="co2-h2o-subscript-copy-paste.html">CO₂ and H₂O copy paste</a></li>
           <li><strong>Math labels:</strong> x₁, x₂</li>
         </ul>
-        <p>Pasted Unicode stays consistent when you copy the cell to Word or email.</p>
+        <p>Pasted Unicode stays consistent when you copy the cell to Word, PowerPoint, or email.</p>
+      </section>
+
+      <section class="content-section seo-section" aria-labelledby="excel-examples">
+        <h3 id="excel-examples">Examples: label vs formula</h3>
+        <div class="char-table-wrap" role="region" aria-label="Excel subscript and superscript examples">
+          <table class="char-table char-table--na">
+            <thead><tr><th>Goal</th><th>Do this</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td>Header “Area (m²)”</td><td>Paste Unicode m² or Format the 2 as Superscript</td><td>Display label only</td></tr>
+              <tr><td>Square a number</td><td><code>=B2^2</code></td><td>Calculated value</td></tr>
+              <tr><td>CO₂ column title</td><td>Paste CO₂ from generator</td><td>Chemistry label</td></tr>
+              <tr><td>Index x₁ in a note</td><td>Paste x₁ or Format the 1 as Subscript</td><td>Display label</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-section seo-section" aria-labelledby="excel-mistakes">
+        <h3 id="excel-mistakes">Common mistakes</h3>
+        <ul>
+          <li><strong>Formatting a whole number cell:</strong> Select only the digit inside text; applying Subscript to a pure number may not stick the way you expect after recalculation.</li>
+          <li><strong>Using Font Superscript instead of ^:</strong> The cell may look like “2²” but Excel will not treat it as “two squared” in math.</li>
+          <li><strong>Expecting Word shortcuts:</strong> Ctrl + = is Word/PowerPoint, not Excel’s main path—use Ctrl + 1 → Font Effects.</li>
+        </ul>
+      </section>
+
+      <section class="content-section seo-section" aria-labelledby="excel-related">
+        <h3 id="excel-related">Related Guides</h3>
+        <ul>
+          <li><a href="/#tool">Free subscript &amp; superscript generator</a></li>
+          <li><a href="word-subscript-superscript.html">Subscript and superscript in Word</a></li>
+          <li><a href="google-docs-subscript-superscript.html">Subscript in Google Docs</a></li>
+          <li><a href="subscript-in-powerpoint.html">Subscript in PowerPoint</a></li>
+          <li><a href="superscript-generator-copy-paste.html">Superscript generator copy paste</a></li>
+          <li><a href="co2-h2o-subscript-copy-paste.html">CO₂ and H₂O copy paste</a></li>
+          <li><a href="blog.html">All guides</a></li>
+        </ul>
       </section>
 
       <section class="content-section seo-section" aria-labelledby="excel-faq">
         <h3 id="excel-faq">Quick Answers</h3>
-        <p><strong>Can Excel subscript work in formulas?</strong> No, formatting is for display. Calculations use <code>^</code> or <code>POWER</code>.</p>
-        <p><strong>Related:</strong> <a href="word-subscript-superscript.html">Subscript in Word</a> · <a href="superscript-generator-copy-paste.html">Superscript copy paste</a></p>
+        <p><strong>How do I type subscript in Excel?</strong> F2 → select characters → Ctrl + 1 / ⌘ + 1 → Font → Subscript, or paste Unicode from the <a href="/#tool">tool</a>.</p>
+        <p><strong>Can Excel subscript work in formulas?</strong> No—formatting is display-only. Calculations use <code>^</code> or <code>POWER</code>.</p>
+        <p><strong>m² or CO₂ in a cell?</strong> Generate with the tool and paste as text.</p>
+        <p><strong>Format Cells shortcut?</strong> Ctrl + 1 (Windows) or ⌘ + 1 (Mac).</p>
+        <p><strong>Does superscript formatting change values?</strong> No. Use <code>^</code> for real exponents.</p>
       </section>
     </article>
 
@@ -174,7 +274,7 @@
           <p class="contact-cta-headline">Need m² or CO₂ for a Spreadsheet?</p>
           <p class="contact-cta-desc">Generate Unicode text and paste into any cell.</p>
         </div>
-        <a href="/" class="contact-cta-btn">Open Subscript Generator</a>
+        <a href="/#tool" class="contact-cta-btn">Open Subscript Generator</a>
       </div>
     </div>
   </main>
