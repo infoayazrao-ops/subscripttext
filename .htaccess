@@ -1,7 +1,14 @@
+# Force UTF-8 so Unicode subscript/superscript (H₂O, x²) is not shown as Hâ‚‚O / xÂ²
+AddDefaultCharset UTF-8
+
 RewriteEngine On
 
 # Single-hop canonical URL: HTTPS + non-www
 # Avoids chains like http://www → https://www → https://apex
+# Skip Laragon/local so http://subscript_generator.test works without SSL.
+RewriteCond %{HTTP_HOST} !\.test$ [NC]
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1$
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]

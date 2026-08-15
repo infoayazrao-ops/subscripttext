@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="280" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Unicode subscript pasted into a Canva text box</title>
+  <desc id="desc">A Canva-style slide with H2O and x squared pasted as Unicode, not as a font effect.</desc>
+  <rect width="720" height="280" fill="#f0f2f5"/>
+  <rect x="16" y="16" width="688" height="248" rx="10" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="16" y="16" width="688" height="40" rx="10" fill="#7c3aed"/>
+  <rect x="16" y="40" width="688" height="16" fill="#7c3aed"/>
+  <text x="36" y="42" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">Canva text box  paste Unicode</text>
+  <text x="48" y="120" fill="#111827" font-family="Georgia, serif" font-size="36">Water: H‚O</text>
+  <text x="48" y="176" fill="#111827" font-family="Georgia, serif" font-size="36">Area: 12 m²</text>
+  <text x="48" y="228" fill="#6b7280" font-family="Segoe UI, Arial, sans-serif" font-size="14">Generated as real characters, then pasted. Canva has no subscript button.</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="280" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Markdown subscript with HTML tags versus Unicode paste</title>
+  <desc id="desc">Side-by-side example of H2O written with HTML sub tags and as Unicode subscript.</desc>
+  <rect width="720" height="280" fill="#0d1117"/>
+  <rect x="16" y="16" width="336" height="248" rx="8" fill="#161b22" stroke="#30363d"/>
+  <rect x="368" y="16" width="336" height="248" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="36" y="48" fill="#8b949e" font-family="Consolas, monospace" font-size="13">README.md</text>
+  <text x="36" y="92" fill="#c9d1d9" font-family="Consolas, monospace" font-size="16">H&lt;sub&gt;2&lt;/sub&gt;O</text>
+  <text x="36" y="128" fill="#c9d1d9" font-family="Consolas, monospace" font-size="16">x&lt;sup&gt;2&lt;/sup&gt;</text>
+  <text x="36" y="180" fill="#7ee787" font-family="Segoe UI, Arial, sans-serif" font-size="14">Renders on GitHub</text>
+  <text x="388" y="48" fill="#8b949e" font-family="Consolas, monospace" font-size="13">Unicode paste</text>
+  <text x="388" y="92" fill="#c9d1d9" font-family="Consolas, monospace" font-size="22">H‚O</text>
+  <text x="388" y="140" fill="#c9d1d9" font-family="Consolas, monospace" font-size="22">x²</text>
+  <text x="388" y="180" fill="#79c0ff" font-family="Segoe UI, Arial, sans-serif" font-size="14">Works where HTML is stripped</text>
+  <text x="36" y="230" fill="#8b949e" font-family="Segoe UI, Arial, sans-serif" font-size="13">Use tags in GitHub. Use Unicode in Discord, Canva, and chat.</text>
+</svg>

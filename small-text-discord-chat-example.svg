@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="280" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Small text in a Discord-style chat</title>
+  <desc id="desc">Example of Unicode tiny letters pasted into a Discord message next to normal text.</desc>
+  <rect width="720" height="280" fill="#313338"/>
+  <rect x="16" y="16" width="688" height="248" rx="8" fill="#2b2d31"/>
+  <circle cx="52" cy="64" r="20" fill="#5865f2"/>
+  <text x="52" y="70" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">A</text>
+  <text x="84" y="58" fill="#f2f3f5" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600">aya</text>
+  <text x="122" y="58" fill="#949ba4" font-family="Segoe UI, Arial, sans-serif" font-size="12">Today at 12:16</text>
+  <text x="84" y="86" fill="#dbdee1" font-family="Segoe UI, Arial, sans-serif" font-size="16">normal: hello cute bio</text>
+  <text x="84" y="118" fill="#dbdee1" font-family="Segoe UI, Arial, sans-serif" font-size="18">small text: &#688;&#7497;&#737;&#737;&#7506; &#7580;&#7512;&#7511;&#7497; &#7495;&#8305;&#7506;</text>
+  <rect x="36" y="160" width="648" height="72" rx="8" fill="#1e1f22"/>
+  <text x="52" y="204" fill="#949ba4" font-family="Segoe UI, Arial, sans-serif" font-size="15">Message #general ? paste tiny Unicode letters here</text>
+</svg>

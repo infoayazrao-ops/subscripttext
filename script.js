@@ -51,6 +51,29 @@
     'v': '\u1D5B', 'w': '\u02B7', 'x': '\u02E3', 'y': '\u02B8', 'z': '\u1DBB'
   };
 
+  const SMALL_CAPS_MAP = {
+    'a': '\u1D00', 'b': '\u0299', 'c': '\u1D04', 'd': '\u1D05', 'e': '\u1D07',
+    'f': '\uA730', 'g': '\u0262', 'h': '\u029C', 'i': '\u026A', 'j': '\u1D0A',
+    'k': '\u1D0B', 'l': '\u029F', 'm': '\u1D0D', 'n': '\u0274', 'o': '\u1D0F',
+    'p': '\u1D18', 'q': '\u01EB', 'r': '\u0280', 's': '\uA731', 't': '\u1D1B',
+    'u': '\u1D1C', 'v': '\u1D20', 'w': '\u1D21', 'x': 'x', 'y': '\u028F',
+    'z': '\u1D22'
+  };
+
+  const TINY_SUB_LETTERS = {
+    'a': '\u2090', 'e': '\u2091', 'h': '\u2095', 'i': '\u1D62', 'j': '\u2C7C',
+    'k': '\u2096', 'l': '\u2097', 'm': '\u2098', 'n': '\u2099', 'o': '\u2092',
+    'p': '\u209A', 'r': '\u1D63', 's': '\u209B', 't': '\u209C', 'u': '\u1D64',
+    'v': '\u1D65', 'x': '\u2093'
+  };
+
+  var SMALL_LAST_STYLE_KEY = 'small-text-last-style';
+  var lastSmallStyleId = 'tiny';
+  try {
+    var storedStyle = localStorage.getItem(SMALL_LAST_STYLE_KEY);
+    if (storedStyle) lastSmallStyleId = storedStyle;
+  } catch (e) {}
+
   // ─── Helpers ──────────────────────────────────────────────────────────────
   function getIgnoreSet() {
     var el = document.getElementById('ignoreChars');
@@ -235,19 +258,202 @@
     return out;
   }
 
-  /** Small text: convert entire text using SMALL_TEXT_MAP. Ignores Formula mode and Numbers Only. */
-  function convertSmallText(text, opts) {
+  function applyCharMap(text, map, opts) {
     if (!text) return '';
     var out = '';
     for (var i = 0; i < text.length; i++) {
       var c = text[i];
       if (isIgnored(c, opts)) { out += c; continue; }
       var key = c.toLowerCase();
-      if (SMALL_TEXT_MAP[c] !== undefined) out += SMALL_TEXT_MAP[c];
-      else if (SMALL_TEXT_MAP[key] !== undefined) out += SMALL_TEXT_MAP[key];
+      if (map[c] !== undefined) out += map[c];
+      else if (map[key] !== undefined) out += map[key];
       else out += c;
     }
     return out;
+  }
+
+  /** Small text: convert entire text using SMALL_TEXT_MAP. Ignores Formula mode and Numbers Only. */
+  function convertSmallText(text, opts) {
+    return applyCharMap(text, SMALL_TEXT_MAP, opts);
+  }
+
+  function convertSmallCaps(text, opts) {
+    return applyCharMap(text, SMALL_CAPS_MAP, opts);
+  }
+
+  function convertTinySub(text, opts) {
+    if (!text) return '';
+    var out = '';
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (isIgnored(c, opts)) { out += c; continue; }
+      if (SUBSCRIPT_DIGITS[c] !== undefined) { out += SUBSCRIPT_DIGITS[c]; continue; }
+      var key = c.toLowerCase();
+      if (TINY_SUB_LETTERS[key] !== undefined) out += TINY_SUB_LETTERS[key];
+      else out += c;
+    }
+    return out;
+  }
+
+  function convertWide(text, opts) {
+    if (!text) return '';
+    var parts = [];
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (isIgnored(c, opts)) { parts.push(c); continue; }
+      if (c === '\n') parts.push('\n');
+      else if (c === ' ') parts.push('  ');
+      else parts.push(c.toUpperCase());
+    }
+    return parts.join(' ').replace(/ \n /g, '\n').replace(/ {3,}/g, '  ');
+  }
+
+  function convertCircled(text, opts) {
+    if (!text) return '';
+    var out = '';
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (isIgnored(c, opts)) { out += c; continue; }
+      var code = c.charCodeAt(0);
+      if (code >= 97 && code <= 122) out += String.fromCharCode(0x24D0 + (code - 97));
+      else if (code >= 65 && code <= 90) out += String.fromCharCode(0x24B6 + (code - 65));
+      else if (c === '0') out += '\u24EA';
+      else if (code >= 49 && code <= 57) out += String.fromCharCode(0x2460 + (code - 49));
+      else out += c;
+    }
+    return out;
+  }
+
+  var SMALL_STYLE_DEFS = [
+    { id: 'tiny', label: 'Tiny', hint: 'Best for Instagram bios and Discord chat', convert: convertSmallText },
+    { id: 'caps', label: 'Small Caps', hint: 'Small capital letters', convert: convertSmallCaps },
+    { id: 'subtiny', label: 'Tiny Subscript', hint: 'Lower tiny letters for bios and chat', convert: convertTinySub },
+    { id: 'wide', label: 'Wide', hint: 'Spaced letters for bios', convert: convertWide },
+    { id: 'circled', label: 'Circled', hint: 'Letters in circles', convert: convertCircled }
+  ];
+
+  function unicodeLen(str) {
+    if (!str) return 0;
+    return Array.from(str).length;
+  }
+
+  function unsupportedTinyLetters(text) {
+    if (!text) return [];
+    var seen = {};
+    var out = [];
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (!isAsciiLetter(c)) continue;
+      var key = c.toLowerCase();
+      if (SMALL_TEXT_MAP[key] !== undefined) continue;
+      if (!seen[key]) {
+        seen[key] = true;
+        out.push(key);
+      }
+    }
+    return out;
+  }
+
+  function copyPlainText(text, feedbackEl, defaultLabel, onCopied) {
+    if (!text) return;
+    function showCopied() {
+      hideClipboardHint();
+      if (typeof onCopied === 'function') onCopied();
+      if (feedbackEl) {
+        feedbackEl.textContent = 'Copied \u2713';
+        feedbackEl.classList.add('copy-feedback');
+        setTimeout(function () {
+          feedbackEl.textContent = defaultLabel;
+          feedbackEl.classList.remove('copy-feedback');
+        }, 1500);
+      }
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(function () {
+          showClipboardHint();
+        });
+        return;
+      }
+    } catch (e) {}
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;left:-9999px;top:0;';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showCopied();
+    } catch (e2) {
+      showClipboardHint();
+    }
+  }
+
+  function updateSmallStylesPanel() {
+    var list = document.getElementById('smallStylesList');
+    if (!list) return;
+    var text = inputEl ? inputEl.value : '';
+    var opts = getOptions();
+    var previewSource = '';
+    if (!list.children.length) {
+      var rows = '';
+      for (var i = 0; i < SMALL_STYLE_DEFS.length; i++) {
+        var def = SMALL_STYLE_DEFS[i];
+        rows += '<div class="small-style-row" data-style-id="' + def.id + '">' +
+          '<div class="small-style-meta"><span class="small-style-label">' + def.label + '</span>' +
+          '<span class="small-style-hint">' + def.hint + '</span></div>' +
+          '<div class="small-style-preview"></div>' +
+          '<button type="button" class="small-style-copy" data-style-copy="' + def.id + '">Copy</button>' +
+          '</div>';
+      }
+      list.innerHTML = rows;
+    }
+    for (var j = 0; j < SMALL_STYLE_DEFS.length; j++) {
+      var styleDef = SMALL_STYLE_DEFS[j];
+      var converted = text ? styleDef.convert(text, opts) : '';
+      if (styleDef.id === lastSmallStyleId) previewSource = converted;
+      var row = list.querySelector('[data-style-id="' + styleDef.id + '"]');
+      if (!row) continue;
+      row.classList.toggle('is-last', styleDef.id === lastSmallStyleId);
+      var preview = row.querySelector('.small-style-preview');
+      if (preview) {
+        if (converted) preview.textContent = converted;
+        else preview.innerHTML = '<span class="small-style-empty">Type above to preview</span>';
+      }
+      var copyBtnRow = row.querySelector('[data-style-copy]');
+      if (copyBtnRow) copyBtnRow.disabled = !converted;
+    }
+    if (!previewSource && text) previewSource = convertSmallText(text, opts);
+
+    var missing = unsupportedTinyLetters(text);
+    var hint = document.getElementById('smallUnsupportedHint');
+    if (hint) {
+      if (missing.length) {
+        hint.hidden = false;
+        hint.textContent = 'No tiny Unicode form for: ' + missing.join(', ') + '. Those letters stay normal so you do not get a box.';
+      } else {
+        hint.hidden = true;
+        hint.textContent = '';
+      }
+    }
+
+    var n = unicodeLen(previewSource);
+    var igEl = document.getElementById('igBioCount');
+    var dcEl = document.getElementById('discordNickCount');
+    if (igEl) {
+      igEl.textContent = n + ' / 150';
+      igEl.classList.toggle('is-over', n > 150);
+    }
+    if (dcEl) {
+      dcEl.textContent = n + ' / 32';
+      dcEl.classList.toggle('is-over', n > 32);
+    }
+    var igPrev = document.getElementById('igBioPreview');
+    var dcPrev = document.getElementById('discordNickPreview');
+    if (igPrev) igPrev.textContent = previewSource || 'Your tiny bio appears here';
+    if (dcPrev) dcPrev.textContent = previewSource || 'tiny name';
   }
 
   function runConversion(inputValue, mode, opts) {
@@ -351,6 +557,8 @@
   function getConversionType() {
     var btn = document.querySelector('.conv-btn.active');
     if (btn && btn.getAttribute('data-type')) return btn.getAttribute('data-type');
+    var def = (document.body.getAttribute('data-default-type') || '').toLowerCase();
+    if (def === 'superscript' || def === 'subscript' || def === 'small') return def;
     return 'subscript';
   }
 
@@ -378,21 +586,24 @@
    */
   var outputRaf = 0;
   function updateOutput() {
-    if (!inputEl || !outputEl) return;
+    if (!inputEl) return;
     var text = inputEl.value;
     var mode = getMode();
     var opts = getOptions();
-    var start = inputEl.selectionStart;
-    var end = inputEl.selectionEnd;
-    var hasSelection = typeof start === 'number' && typeof end === 'number' && start < end;
-    if (hasSelection) {
-      outputEl.value = text.slice(0, start) + runConversion(text.slice(start, end), mode, opts) + text.slice(end);
-    } else {
-      outputEl.value = runConversion(text, mode, opts);
+    if (outputEl) {
+      var start = inputEl.selectionStart;
+      var end = inputEl.selectionEnd;
+      var hasSelection = typeof start === 'number' && typeof end === 'number' && start < end;
+      if (hasSelection) {
+        outputEl.value = text.slice(0, start) + runConversion(text.slice(start, end), mode, opts) + text.slice(end);
+      } else {
+        outputEl.value = runConversion(text, mode, opts);
+      }
+      applyOutputStyle(getStyle());
     }
-    applyOutputStyle(getStyle());
     updateCopyButtonState();
     updateStats();
+    updateSmallStylesPanel();
   }
 
   function scheduleUpdateOutput() {
@@ -739,11 +950,29 @@
 
   // Theme + dropdowns live in site.js (shared). Converter-only below.
 
+  function applyConversionTypeFromUrl() {
+    var type = '';
+    try {
+      var params = new URLSearchParams(window.location.search);
+      type = (params.get('type') || '').toLowerCase();
+    } catch (e) {}
+    if (!type) {
+      type = (document.body.getAttribute('data-default-type') || '').toLowerCase();
+    }
+    if (!type && window.location.hash) {
+      var h = window.location.hash.replace(/^#/, '').toLowerCase();
+      if (h === 'superscript' || h === 'subscript' || h === 'small') type = h;
+    }
+    if (type !== 'superscript' && type !== 'subscript' && type !== 'small') return;
+    var typeBtn = document.querySelector('.conv-btn[data-type="' + type + '"]');
+    if (typeBtn) typeBtn.click();
+  }
+
   function init() {
     inputEl = document.getElementById('inputText');
     outputEl = document.getElementById('outputText');
-    // Converter UI only exists on the homepage tool — bail early elsewhere.
-    if (!inputEl || !outputEl) return;
+    if (!inputEl) return;
+    if (!outputEl && !document.getElementById('smallStylesPanel')) return;
 
     modeRadios = document.querySelectorAll('input[name="conversionMode"]');
     optNumbers = document.getElementById('optNumbers');
@@ -824,7 +1053,8 @@
     if (btnGenerate) btnGenerate.addEventListener('click', updateOutput);
     if (btnSample && inputEl) {
       btnSample.addEventListener('click', function () {
-        inputEl.value = 'H2O';
+        var def = (document.body.getAttribute('data-default-type') || 'subscript').toLowerCase();
+        inputEl.value = def === 'superscript' ? 'x2' : (def === 'small' ? 'hello' : 'H2O');
         inputEl.focus();
         updateOutput();
         updateCopyButtonState();
@@ -850,7 +1080,37 @@
       });
     });
 
+    document.querySelectorAll('.example-chip[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var ready = btn.getAttribute('data-copy');
+        if (!ready) return;
+        var original = btn.textContent;
+        copyPlainText(ready, btn, original);
+      });
+    });
+
+    var smallPanel = document.getElementById('smallStylesPanel');
+    if (smallPanel) {
+      smallPanel.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-style-copy]');
+        if (!btn || btn.disabled) return;
+        var id = btn.getAttribute('data-style-copy');
+        var text = inputEl ? inputEl.value : '';
+        var converted = '';
+        for (var i = 0; i < SMALL_STYLE_DEFS.length; i++) {
+          if (SMALL_STYLE_DEFS[i].id === id) converted = SMALL_STYLE_DEFS[i].convert(text, getOptions());
+        }
+        if (!converted) return;
+        lastSmallStyleId = id;
+        try { localStorage.setItem(SMALL_LAST_STYLE_KEY, id); } catch (err) {}
+        copyPlainText(converted, btn, 'Copy', function () {
+          updateSmallStylesPanel();
+        });
+      });
+    }
+
     bindLiveConversion();
+    applyConversionTypeFromUrl();
     updateOutput();
     updateCopyButtonState();
     updateStats();
