@@ -32,8 +32,8 @@
   <meta name="twitter:image:alt" content="Subscript Generator logo">
   <link rel="preload" href="subscript_generator_logo_160.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" href="subscript_generator_logo.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
-  <link rel="preload" href="styles.min.css?v=20260816h" as="style">
-  <link rel="stylesheet" href="styles.min.css?v=20260816h">
+  <link rel="preload" href="styles.min.css?v=20260816m" as="style">
+  <link rel="stylesheet" href="styles.min.css?v=20260816m">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -216,9 +216,13 @@
           </div>
         </div>
         <div class="input-col-footer">
-          <div class="ignore-row">
-            <label for="ignoreChars" class="ignore-label">Ignore these characters:</label>
-            <input type="text" id="ignoreChars" class="ignore-input" placeholder="e.g. a, b, 1, 2" aria-label="Characters to ignore (comma-separated)">
+          <div class="ignore-row panel">
+            <div class="panel-header">
+              <label for="ignoreChars">Ignore these characters</label>
+            </div>
+            <div class="ignore-body">
+              <input type="text" id="ignoreChars" class="ignore-input" placeholder="e.g. a, b, 1, 2" aria-label="Characters to ignore (comma-separated)">
+            </div>
           </div>
         </div>
       </div>

@@ -1110,16 +1110,36 @@ body.light .trust-tag--orange {
   flex: 1;
 }
 .page-shell .input-col-footer {
-  min-height: 0;
+  min-height: 132px;
+  display: flex;
 }
 .page-shell .ignore-row {
   margin-top: 0;
-  padding: 14px 16px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  padding: 0;
+  min-height: 132px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  overflow: hidden;
 }
-.page-shell .input-col-footer,
+.page-shell .ignore-row .panel-header {
+  flex-shrink: 0;
+}
+.page-shell .ignore-row .panel-header label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.ignore-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+}
 .page-shell .actions-bar {
   min-height: 132px;
 }
