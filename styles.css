@@ -340,7 +340,9 @@ ins.adsbygoogle {
   color: var(--chip-text);
   font-weight: 500;
   cursor: pointer;
-  transition: background .15s, border-color .15s, color .15s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .15s, border-color .15s, color .15s, box-shadow .15s, transform .15s;
 }
 .example-chip:hover {
   border-color: var(--accent);
@@ -357,6 +359,103 @@ body.light .example-chip:hover {
   font-size: 1.05rem;
   letter-spacing: 0.02em;
 }
+.copy-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: stretch;
+  margin: 8px 0 16px;
+}
+.copy-hero-label {
+  width: 100%;
+  margin: 0 0 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.copy-hero-hint {
+  width: 100%;
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.example-chip--hero,
+.char-copy-btn {
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-width: 72px;
+  min-height: 76px;
+  padding: 12px 14px 10px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  filter: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.example-chip--hero:hover,
+.char-copy-btn:hover {
+  border-color: var(--accent);
+  filter: none;
+  color: var(--text);
+}
+body.light .example-chip--hero:hover,
+body.light .char-copy-btn:hover {
+  color: var(--text);
+  filter: none;
+}
+.example-chip--hero::after,
+.char-copy-btn::after {
+  content: "Copy";
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #fff;
+  background: var(--accent);
+}
+.example-chip.is-copied,
+.char-copy-btn.is-copied {
+  outline: none;
+  background: var(--success-bg);
+  border-color: var(--success);
+  filter: none;
+  box-shadow: none;
+}
+.example-chip--hero.is-copied::after,
+.char-copy-btn.is-copied::after {
+  content: "Copied";
+  color: #fff;
+  background: var(--success);
+}
+.char-copy-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.char-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  min-width: 56px;
+  min-height: 68px;
+  padding: 10px 10px 8px;
+  font-size: 1.35rem;
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .15s, border-color .15s, box-shadow .15s;
+}
+.char-copy-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .tiny-howto {
   display: grid;

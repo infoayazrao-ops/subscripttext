@@ -1080,15 +1080,6 @@
       });
     });
 
-    document.querySelectorAll('.example-chip[data-copy]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var ready = btn.getAttribute('data-copy');
-        if (!ready) return;
-        var original = btn.textContent;
-        copyPlainText(ready, btn, original);
-      });
-    });
-
     var smallPanel = document.getElementById('smallStylesPanel');
     if (smallPanel) {
       smallPanel.addEventListener('click', function (e) {

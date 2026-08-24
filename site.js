@@ -68,9 +68,55 @@
     });
   }
 
+  function copyPlainText(text, feedbackEl) {
+    if (!text) return;
+    function showCopied() {
+      if (!feedbackEl) return;
+      feedbackEl.classList.add('is-copied');
+      setTimeout(function () {
+        feedbackEl.classList.remove('is-copied');
+      }, 1500);
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(function () {
+          fallbackCopy(text, showCopied);
+        });
+        return;
+      }
+    } catch (e) {}
+    fallbackCopy(text, showCopied);
+  }
+
+  function fallbackCopy(text, onCopied) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;left:-9999px;top:0;';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      if (typeof onCopied === 'function') onCopied();
+    } catch (e) {}
+  }
+
+  function initCopyChips() {
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest('[data-copy]');
+      if (!el) return;
+      var ready = el.getAttribute('data-copy');
+      if (!ready) return;
+      e.preventDefault();
+      copyPlainText(ready, el);
+    });
+  }
+
   function init() {
     initTheme();
     initDropdowns();
+    initCopyChips();
   }
 
   if (document.readyState === 'loading') {
