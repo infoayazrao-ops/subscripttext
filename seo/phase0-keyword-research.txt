@@ -1,0 +1,9 @@
+Independent keyword research notes (Aug 2026)
+
+what-is-subscript: High PAA volume, definition intent — CREATE approved
+google-slides-subscript: Moderate teacher queries, SERP mixed — DEFER (need GSC/Planner confirm)
+subscript-on-iphone: Low volume, Apple help dominates — DEFER
+discord-subscript: Covered by WhatsApp + small-text Discord — SKIP
+google-classroom: Niche — SKIP
+
+Batch 6: what-is-subscript.html only

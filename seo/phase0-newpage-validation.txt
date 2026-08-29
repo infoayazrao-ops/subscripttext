@@ -1,0 +1,11 @@
+Phase 0 new-page go/no-go (Aug 2026)
+
+| Candidate | Volume signal | SERP weakness | Owner clear | Info gain | Decision |
+|---|---|---|---|---|---|
+| what-is-subscript.html | High PAA + homepage cannibalization | Thin definition pages | Yes | Unicode vs font styling | CREATE |
+| google-slides-subscript.html | Moderate (teacher PAA) | Mixed Google help | Partial overlap Docs | Text box no button | DEFER — validate in GSC first |
+| subscript-on-iphone.html | Low-moderate | Apple/Google help dominates | Overlap WhatsApp | iOS keyboard limits | DEFER — need Keyword Planner |
+| Discord subscript | Covered | WhatsApp + small-text Discord | N/A | Low | SKIP |
+| Google Classroom | Niche | Thin SERP | N/A | Low | SKIP |
+
+Batch 6 ships: what-is-subscript.html only (Slides/iPhone deferred per plan).

@@ -49,7 +49,7 @@
         "description": "Unicode has no standard Latin subscript b. Copy beta ᵦ, B₂, or letters that exist: ₐ ₑ ₕ ₖ ₗ ₘ ₙ ₒ ₚ ₛ ₜ ₓ.",
         "author": { "@type": "Organization", "name": "Subscript Generator" },
         "datePublished": "2026-08-24",
-        "dateModified": "2026-08-24"
+        "dateModified": "2026-08-29"
       }
     ]
   }
@@ -106,7 +106,7 @@
       <header class="content-section seo-section">
         <h2 id="letters-main">Looking for a lowered b?</h2>
         <p class="aeo-answer" role="note"><strong>Quick answer:</strong> Unicode has no standard Latin <strong>subscript b</strong>. Tap <strong>ᵦ</strong> (Greek beta) or <strong>B₂</strong> if you meant boron with a 2.</p>
-        <p class="article-dates"><time datetime="2026-08-24">Published 24 August 2026</time></p>
+        <p class="article-dates"><time datetime="2026-08-24">Published 24 August 2026</time> · <time datetime="2026-08-29">Updated 29 August 2026</time></p>
         <div class="copy-hero" role="group" aria-label="Copy closest b options">
           <p class="copy-hero-label">Closest to a lowered b</p>
           <button type="button" class="example-chip example-chip--hero" data-copy="ᵦ" aria-label="Copy beta subscript">ᵦ</button>
@@ -121,12 +121,39 @@
         <p>Word can shrink any letter with Format → Subscript. That style dies in WhatsApp. Only characters that exist in Unicode travel. The official Latin set (U+2090–U+209C) is short: ₐ ₑ ₒ ₓ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ plus schwa. Extra phonetic marks (ᵢ ⱼ ᵣ ᵤ ᵥ) exist in some fonts and fail in others.</p>
         <p>Math people often want x_b or a_f. Those are written as xᵦ or x with a normal b if the reader’s font lacks beta. In a paper you can keep Word styling. In a chat or a slide that will be copied out, pick a letter that exists (ₓ ₙ) or keep the index as a normal letter.</p>
         <p>Our converter maps only the official Latin set above. Type “b” or “f” and they stay b and f. That is deliberate. Inventing a fake glyph would show as a box on half the phones in a class WhatsApp group.</p>
-        <p>On a phone, tap ᵦ or B₂, switch to the chat or slide, long-press, Paste. On a computer, click the chip, then Ctrl + V or Cmd + V. If you see a box, the font lacks that mark — keep a normal b rather than forcing a fake subscript.</p>
+        <p>On a phone, tap ᵦ or B₂, switch to the chat or slide, long-press, Paste. On a computer, click the chip, then Ctrl + V or Cmd + V. If you see a box, the font lacks that mark. Keep a normal b rather than forcing a fake subscript.</p>
         <p>Use B₂ when the 2 is a real index (boron, a second item). Use ᵦ when you only need the look of a small b and the reader will accept Greek. For homework that must stay Latin, leave b normal and say so once in the caption.</p>
       </section>
 
-      <section class="content-section seo-section">
-        <h3>Subscript letters that actually exist</h3>
+      <section class="content-section seo-section" aria-labelledby="letters-supported">
+        <h3 id="letters-supported">Supported vs unsupported Latin letters</h3>
+        <p>Unicode only gives subscript forms for part of the alphabet. Letters <strong>b</strong>, <strong>f</strong>, and <strong>q</strong> have no standard Latin lowered form. Our converter leaves them normal so you do not paste a box into a group chat.</p>
+        <div class="char-table-wrap" role="region" aria-label="Supported and unsupported subscript letters">
+          <table class="char-table char-table--na">
+            <thead>
+              <tr>
+                <th>Letter</th>
+                <th>Status</th>
+                <th>Unicode</th>
+                <th>What to do instead</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>a</td><td>Supported</td><td>ₐ (U+2090)</td><td>Tap ₐ below or type a in the converter</td></tr>
+              <tr><td>b</td><td>Missing</td><td>None</td><td>Use B₂ for boron, or ᵦ (Greek beta) if the look matters</td></tr>
+              <tr><td>e</td><td>Supported</td><td>ₑ (U+2091)</td><td>Tap ₑ below</td></tr>
+              <tr><td>f</td><td>Missing</td><td>None</td><td>Keep f normal, or write f₂ with a lowered 2</td></tr>
+              <tr><td>h</td><td>Supported</td><td>ₕ (U+2095)</td><td>Tap ₕ below</td></tr>
+              <tr><td>q</td><td>Missing</td><td>None</td><td>Keep q normal; no honest Unicode shortcut</td></tr>
+              <tr><td>x</td><td>Supported</td><td>ₓ (U+2093)</td><td>Tap ₓ below for math indices like xₙ</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The full supported set is a, e, h, k, l, m, n, o, p, s, t, and x (U+2090 to U+209C). Anything else stays as a normal letter on purpose.</p>
+      </section>
+
+      <section class="content-section seo-section" aria-labelledby="letters-exist">
+        <h3 id="letters-exist">Subscript letters that actually exist</h3>
         <p>These <strong>subscript letters</strong> are the ones our converter maps. Tap one. Missing glyphs stay as normal Latin so you do not get a box.</p>
         <div class="char-copy-row" role="group" aria-label="Existing lowered letters">
           <button type="button" class="char-copy-btn" data-copy="ₐ" aria-label="Copy a">ₐ</button>

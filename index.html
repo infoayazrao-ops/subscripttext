@@ -103,6 +103,37 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to use the Subscript Generator",
+    "description": "Type plain text, use Formula mode for chemistry, copy Unicode subscript, and paste into Word, Docs, or WhatsApp.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Choose Subscript and Formula mode",
+        "text": "Select Subscript as the conversion type. For H2O or CO2, choose Formula mode and turn Numbers Only on so only digits after letters become subscript."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Type your text",
+        "text": "Enter plain text such as H2O, CO2, or x1 in the input box, or tap a quick example chip."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Copy the Unicode output",
+        "text": "Click Copy to Clipboard or the Copy button in the output panel. The result uses real Unicode characters, not app-only formatting."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Paste into your app",
+        "text": "Paste into Word, Google Docs, PowerPoint, WhatsApp, or any app that supports Unicode. Bold and Italic options apply when pasting into Word or Docs only."
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="dark" data-default-type="subscript">
   <script>
@@ -306,148 +337,78 @@
     <nav class="related-guides" aria-label="Related guides">
       <h2 class="related-guides-title">Related guides</h2>
       <ul class="related-guides-list">
-        <li><a href="superscript-generator.html">Superscript generator</a></li>
-        <li><a href="small-text-generator.html">Small text generator</a></li>
-        <li><a href="superscript-generator-copy-paste.html">Superscript numbers copy paste</a></li>
-        <li><a href="small-text-copy-paste.html">Small text copy paste</a></li>
-        <li><a href="small-text-in-discord.html">Small text in Discord</a></li>
-        <li><a href="subscript-in-canva.html">Subscript in Canva</a></li>
-        <li><a href="markdown-subscript-superscript.html">Markdown subscript</a></li>
-        <li><a href="subscript-numbers-symbols-copy-paste.html">Subscript numbers &amp; symbols</a></li>
-        <li><a href="word-subscript-superscript.html">How to subscript in Word</a></li>
-        <li><a href="google-docs-subscript-superscript.html">Subscript in Google Docs</a></li>
-        <li><a href="excel-subscript-superscript.html">Subscript in Excel</a></li>
-        <li><a href="subscript-in-powerpoint.html">Subscript in PowerPoint</a></li>
-        <li><a href="subscript-vs-superscript.html">Subscript vs superscript</a></li>
-        <li><a href="subscript-in-whatsapp.html">Subscript in WhatsApp</a></li>
+        <li><a href="superscript-generator.html">Exponents and footnotes tool</a></li>
+        <li><a href="small-text-generator.html">Tiny letters for bios</a></li>
+        <li><a href="co2-h2o-subscript-copy-paste.html">Chemistry formula board</a></li>
+        <li><a href="subscript-numbers-symbols-copy-paste.html">One-click subscript digits</a></li>
+        <li><a href="word-subscript-superscript.html">Word formatting guide</a></li>
+        <li><a href="google-docs-subscript-superscript.html">Docs paste guide</a></li>
+        <li><a href="subscript-in-whatsapp.html">Chat paste guide</a></li>
+        <li><a href="subscript-in-powerpoint.html">Slides paste guide</a></li>
+        <li><a href="subscript-vs-superscript.html">Below vs above the line</a></li>
+        <li><a href="what-is-subscript.html">What lowered digits mean</a></li>
       </ul>
     </nav>
   </div>
 
   <div class="content-below">
-    <section class="content-section seo-section" aria-labelledby="subscript-copy paste">
+    <section class="content-section seo-section" aria-labelledby="subscript-copy-paste">
       <h2 id="subscript-copy-paste">How do I copy and paste subscript text?</h2>
-      <p>Type CO2, H2O, or x1 in the tool, choose <strong>Subscript</strong>, click <strong>Copy</strong>, and paste. You get real Unicode subscript, so the formatting travels with the text instead of breaking when you move it to another app.</p>
-      <ul>
-        <li>Convert normal text to <strong>subscript text</strong> in seconds.</li>
-        <li>Copy the subscript output with a single click.</li>
-        <li>Paste into Word, Google Docs, PowerPoint, WhatsApp, Discord, and more.</li>
-      </ul>
+      <p>Type CO2, H2O, or x1 in the tool above, choose <strong>Subscript</strong>, click <strong>Copy</strong>, and paste. You get real Unicode characters, so the formatting travels with the text instead of breaking when you move it to another app. That is the core <strong>unicode copy paste</strong> workflow teachers use when Word or Docs has no quick button in a chat box.</p>
     </section>
 
-    <section class="content-section seo-section" aria-labelledby="text to subscript">
-      <h2 id="text-to-subscript">How does a text to subscript converter work?</h2>
-      <p>It maps each supported character to a Unicode subscript or superscript code point in your browser. Nothing is sent to a server for conversion, after the first load it can work offline. Unsupported letters (like subscript b) are left normal; see the FAQ below.</p>
+    <section class="content-section seo-section" aria-labelledby="paste-break">
+      <h2 id="paste-break">Does Unicode subscript survive paste between apps?</h2>
+      <p>App formatting (Word Subscript button, Docs Format menu) often strips when you copy into WhatsApp, Gmail, or slides. Unicode subscript is a real character, so one copy usually works across apps.</p>
+      <div class="char-table-wrap" role="region" aria-label="Paste behavior comparison">
+        <table class="char-table char-table--compact">
+          <thead>
+            <tr><th>Method</th><th>Stays in Word</th><th>Survives paste to chat/slides</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Word/Docs Subscript button</td><td>Yes</td><td>Often breaks</td></tr>
+            <tr><td>Unicode from this tool (H₂O, CO₂)</td><td>Yes</td><td>Yes on modern devices</td></tr>
+            <tr><td>Smaller font only</td><td>Sometimes</td><td>No</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="content-section seo-section" aria-labelledby="subscript-chemistry">
-      <h2 id="subscript-chemistry">How do I write CO₂, H₂O, or C₆H₁₂O₆ in subscript?</h2>
-      <p>Most students type the plain formula first (CO2, H2O). Turn on <strong>Formula</strong> mode and <strong>Numbers Only: On</strong> so only digits after letters become subscript, letters stay normal, which matches how chemistry notation is usually written.</p>
-      <p>Some apps let you format one character at a time in Word or Docs; Unicode paste is faster when you need the same symbol in email, slides, and chat without redoing formatting each time.</p>
+      <h2 id="subscript-chemistry">How do I write chemical formulas in subscript?</h2>
+      <p>For <strong>chemical formulas</strong> like H₂O or CO₂, type plain H2O or CO2, turn on <strong>Formula</strong> mode and <strong>Numbers Only: On</strong>. Only digits after letters drop below the line; element symbols stay normal. Need a ready board? See the <a href="co2-h2o-subscript-copy-paste.html">chemistry formula copy board</a>.</p>
       <ul>
-        <li>CO2 → CO₂</li>
         <li>H2O → H₂O</li>
+        <li>CO2 → CO₂</li>
         <li>C6H12O6 → C₆H₁₂O₆</li>
       </ul>
     </section>
 
-    <section class="content-section seo-section" aria-labelledby="what-is-subscript">
-      <h2 id="what-is-subscript">What is a subscript?</h2>
-      <p>A subscript sits below the baseline, like the 2 in H₂O. Unicode gives you actual characters (U+2080 to U+209C for many digits), not a smaller font style that disappears when you copy text between apps.</p>
-      <ul>
-        <li>Chemical formulas (H₂O, CO₂, C₆H₁₂O₆)</li>
-        <li>Mathematical notation (x₁, aₙ, variables)</li>
-        <li>Scientific notation and equations</li>
-        <li>Footnote references and indices</li>
-        <li>Molecular formulas in documents</li>
-      </ul>
+    <section class="content-section seo-section" aria-labelledby="unsupported-letters">
+      <h2 id="unsupported-letters">Which letters have no Unicode subscript?</h2>
+      <p>Unicode defines subscript digits (U+2080 to U+2089) and many letters, but <strong>not b, f, or q</strong>. The tool leaves those letters normal and converts what exists. For B₁-style notation, type B1 with Formula mode instead of expecting a subscript b character.</p>
+      <p>Full supported list: <a href="subscript-letters-copy-paste.html">subscript letters reference</a>.</p>
+    </section>
+
+    <section class="content-section seo-section" aria-labelledby="what-is-subscript-brief">
+      <h2 id="what-is-subscript-brief">What is a subscript?</h2>
+      <p>A subscript sits below the baseline, like the 2 in H₂O. It is a Unicode character (U+2080 to U+209C for many digits), not a font style that disappears on copy. Read the full guide: <a href="what-is-subscript.html">what is subscript</a> (meaning, examples, and when to use lowered digits vs raised exponents).</p>
     </section>
 
     <section class="content-section seo-section" aria-labelledby="how-to-use-generator">
-      <h2 id="how-to-use-generator">How to Use the Subscript Generator</h2>
-      <p>This subscript and superscript generator is designed to be easy for everyone. Follow the steps below to format your text perfectly. Use subscript for chemistry formulas (subscript chemistry) and math; use superscript for exponents. Small text and tiny numbers copy paste modes are also available.</p>
-
-      <h3>Step 1: Choose a Conversion Type</h3>
-      <p>Select the style you want for your text. You can switch anytime.</p>
-      <ul>
-        <li><strong>Subscript</strong> | Characters sit below the baseline (e.g. H₂O, CO₂, x₁). Best for chemistry, math variables, and scientific notation.</li>
-      </ul>
-      <p><strong>Extra features:</strong></p>
-      <ul>
-        <li><strong>Superscript</strong> | Characters sit above the baseline (e.g. x², E=mc²). Superscript copy paste works the same way. Best for exponents and footnotes.</li>
-        <li><strong>Small Text</strong> | Uses modifier letters for compact styling.</li>
-      </ul>
-      <p><strong>Tip:</strong> Subscript is best for chemical formulas. Superscript is best for exponents and powers.</p>
-
-      <h3>Step 2: Choose a Conversion Mode</h3>
-      <p>At the top of the center panel, you will see two modes. Each works differently.</p>
-      <ul>
-        <li><strong>Formula mode</strong> | Converts only numbers that immediately follow letters. Ideal for subscript chemistry and math formulas.
-          <ul>
-            <li>Input: H2O, CO2, C6H12O6</li>
-            <li>Output: H₂O, CO₂, C₆H₁₂O₆</li>
-          </ul>
-        </li>
-        <li><strong>Full mode</strong> | Converts every supported letter and number. Use when you want whole words or mixed text in subscript/superscript.
-          <ul>
-            <li>Input: hello, x1n2</li>
-            <li>Output: ₕₑₗₗₒ, ₓ₁ₙ₂</li>
-          </ul>
-        </li>
-      </ul>
-      <p><strong>Tip:</strong> For H₂O, CO₂, and similar formulas, always use Formula mode.</p>
-
-      <h3>Step 3: Set Numbers Only</h3>
-      <p>This option controls whether letters are converted or only numbers.</p>
-      <ul>
-        <li><strong>Numbers Only: ON</strong> | Only digits convert (H2O becomes H₂O; letters stay normal). Use for chemistry formulas.</li>
-        <li><strong>Numbers Only: OFF</strong> | Letters and numbers both convert. Use for full subscript text (e.g. xₙ, aₘ).</li>
-      </ul>
-
-      <h3>Step 4: Enter Your Text</h3>
-      <p>Click inside the input box and type or paste your content. You can write:</p>
-      <ul>
-        <li>Chemical formulas (H2O, CO2, H2SO4)</li>
-        <li>Mathematical expressions (x1, x2, an)</li>
-        <li>Physics equations (E=mc2)</li>
-        <li>Normal text with numbers</li>
-      </ul>
-      <p>You can also use <strong>Upload File</strong> to load text from a .txt file.</p>
-
-      <h3>Step 5: Use Quick Example Buttons</h3>
-      <p>Above the tool, use the built in buttons to insert formatted examples instantly:</p>
-      <ul>
-        <li>H₂O (water)</li>
-        <li>CO₂ (carbon dioxide)</li>
-        <li>x₂ (variable with subscript)</li>
-        <li>C₆H₁₂O₆ (glucose)</li>
-      </ul>
-      <p>Clicking a button inserts the plain input (e.g. H2O) and converts it automatically.</p>
-
-      <h3>Step 6: Use Auto or Click Generate</h3>
-      <p>With <strong>Auto: ON</strong>, the output updates as you type. No need to click anything.</p>
-      <p>With <strong>Auto: OFF</strong>, click the <strong>Generate</strong> button to convert. The Generate button applies the conversion on demand.</p>
-      <p><strong>Tip:</strong> Use Auto ON for quick edits. Use Auto OFF if you prefer to control when conversion happens.</p>
-
-      <h3>Step 7: Customize for Word and Google Docs (Optional)</h3>
-      <p>If you will paste into Word or Google Docs, you can tick <strong>Bold</strong> or <strong>Italic</strong> before copying. The pasted text will keep that formatting. These options do not work in social media or .txt files.</p>
-
-      <h3>Step 8: Copy or Download the Result</h3>
-      <p>Click <strong>Copy to Clipboard</strong> to copy the formatted text, or use the <strong>Copy</strong> button in the output panel. Click <strong>Download</strong> to save as a .txt file.</p>
-      <p>Paste the result into Word, Google Docs, email, social media, or any app that supports Unicode.</p>
-
-      <h3>Clear Input or Reset (If Needed)</h3>
-      <p>Click <strong>Clear</strong> in the input panel to empty the input box. Click <strong>Reset</strong> to clear both input and output and start fresh.</p>
-    </section>
-
-    <section class="content-section seo-section" aria-labelledby="subscript-symbol">
-      <h2 id="subscript-symbol">Subscript Copy Paste Symbols</h2>
-      <p>Need fast <strong>subscript copy paste</strong>? Each symbol below is a real Unicode character. Grab numbers (₀ to ₉) and letters (ₐ to ₓ) from the next tables, then paste into Word, Excel, PowerPoint, Discord, WhatsApp, or any app that supports Unicode.</p>
+      <h2 id="how-to-use-generator">How to use this tool in four steps</h2>
+      <ol>
+        <li><strong>Choose Subscript + Formula mode</strong> for chemistry (H2O → H₂O). Use Full mode for whole-word subscript.</li>
+        <li><strong>Type or paste</strong> plain text in the input box, or tap a quick example chip.</li>
+        <li><strong>Copy</strong> the Unicode output from the panel.</li>
+        <li><strong>Paste</strong> into Word, Google Docs, PowerPoint, WhatsApp, or email. Optional Bold/Italic applies in Word and Docs only.</li>
+      </ol>
+      <p>Runs in your browser; no signup. Works offline after the first load.</p>
     </section>
 
     <section class="content-section seo-section" aria-labelledby="subscript-numbers">
-      <h2 id="subscript-numbers">Subscript Numbers Copy Paste (0 to 9)</h2>
-      <p>Unicode <strong>subscript numbers</strong> 0 to 9 (U+2080 to U+2089). Click any cell below for <strong>subscript 1 copy paste</strong>, <strong>subscript 2 copy paste</strong>, subscript 0, and the rest.</p>
+      <h2 id="subscript-numbers">Subscript numbers copy paste (0 to 9)</h2>
+      <p>Unicode subscript digits U+2080 to U+2089. Click any cell to copy. More codes on the <a href="subscript-numbers-symbols-copy-paste.html">digits and symbols page</a>.</p>
       <div class="char-table-wrap" role="region" aria-label="Subscript numbers">
         <table class="char-table char-table--easy">
           <thead>
@@ -462,170 +423,35 @@
           </tbody>
         </table>
       </div>
-      <p>Use these digits for math indices and chemistry formulas like x₁, x₂, x₃ or CO₂ and H₂O. For a full sentence or word in subscript, switch the tool to Full mode.</p>
-    </section>
-
-    <section class="content-section seo-section" aria-labelledby="subscript-letters">
-      <h2 id="subscript-letters">Subscript Letters (Unicode Reference)</h2>
-      <p>Subscript letters copy and paste as real Unicode characters. Letters b, f, and q have no Unicode subscript form, which is why there is no dedicated <strong>subscript B</strong> or <strong>subscript f</strong> character in Unicode. When you need them, use regular letters with formatting in Word or PowerPoint, or write variables such as B₁ and fₙ instead.</p>
-      <div class="char-table-wrap" role="region" aria-label="Subscript letters">
-        <table class="char-table char-table--easy">
-          <thead>
-            <tr>
-              <th>a</th><th>e</th><th>h</th><th>k</th><th>l</th><th>m</th><th>n</th><th>o</th><th>p</th><th>s</th><th>t</th><th>x</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="copy-cell">ₐ</td><td class="copy-cell">ₑ</td><td class="copy-cell">ₕ</td><td class="copy-cell">ₖ</td><td class="copy-cell">ₗ</td><td class="copy-cell">ₘ</td><td class="copy-cell">ₙ</td><td class="copy-cell">ₒ</td><td class="copy-cell">ₚ</td><td class="copy-cell">ₛ</td><td class="copy-cell">ₜ</td><td class="copy-cell">ₓ</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="content-section seo-section" aria-labelledby="subscript-examples">
-      <h2 id="subscript-examples">Real-World Subscript Examples</h2>
-      <div class="char-table-wrap">
-        <table class="char-table char-table--compact">
-          <thead>
-            <tr><th>Chemistry</th><th>Input</th><th>Output</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Water</td><td>H2O</td><td class="copy-cell">H₂O</td></tr>
-            <tr><td>Carbon dioxide</td><td>CO2</td><td class="copy-cell">CO₂</td></tr>
-            <tr><td>Glucose</td><td>C6H12O6</td><td class="copy-cell">C₆H₁₂O₆</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="char-table-wrap">
-        <table class="char-table char-table--compact">
-          <thead>
-            <tr><th>Mathematics</th><th>Input</th><th>Output</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Variable</td><td>x1</td><td class="copy-cell">x₁</td></tr>
-            <tr><td>Index</td><td>n</td><td class="copy-cell">ₙ</td></tr>
-            <tr><td>Power</td><td>x^2</td><td class="copy-cell">x²</td></tr>
-            <tr><td>Pythagorean</td><td>a^2 + b^2</td><td class="copy-cell">a² + b²</td></tr>
-            <tr><td>Variable</td><td>x2</td><td class="copy-cell">x₂</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="char-table-wrap">
-        <table class="char-table char-table--compact">
-          <thead>
-            <tr><th>Physics</th><th>Input</th><th>Output</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Mass energy</td><td>E=mc2</td><td class="copy-cell">E=mc²</td></tr>
-            <tr><td>Velocity squared</td><td>v^2</td><td class="copy-cell">v²</td></tr>
-            <tr><td>Initial velocity</td><td>v0</td><td class="copy-cell">v₀</td></tr>
-          </tbody>
-        </table>
-      </div>
     </section>
 
     <section class="content-section seo-section" aria-labelledby="subscript-vs-superscript">
       <h2 id="subscript-vs-superscript">What is the difference between subscript and superscript?</h2>
-      <p>Subscript is below the line (H₂O, x₁). Superscript is above (x², ¹). Use <strong>Subscript</strong> or <strong>Superscript</strong> on the tool before you copy.</p>
-      <div class="char-table-wrap">
-      <table class="char-table char-table--compact">
-        <thead>
-          <tr><th>Type</th><th>Position</th><th>Example</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Subscript</td><td>Below baseline</td><td>H₂O, CO₂, x₁</td></tr>
-          <tr><td>Superscript</td><td>Above baseline</td><td>x², E=mc²</td></tr>
-        </tbody>
-      </table>
-      </div>
-    </section>
-
-    <section class="content-section seo-section" aria-labelledby="where-use">
-      <h2 id="where-use">Where Can You Use Subscript Text?</h2>
-      <ul>
-        <li>Microsoft Word (subscript in Word)</li>
-        <li>Google Docs (subscript in Google Docs)</li>
-        <li>Excel (subscript in Excel) and PowerPoint (subscript in PowerPoint)</li>
-        <li>Discord (subscript in Discord) and WhatsApp (subscript in WhatsApp)</li>
-        <li>Social media (Twitter, Facebook, Instagram)</li>
-        <li>Email (Gmail, Outlook)</li>
-        <li>WordPress and HTML editors</li>
-        <li>LaTeX and markdown</li>
-        <li>Plain text files (.txt)</li>
-      </ul>
-    </section>
-
-    <section class="content-section seo-section" aria-labelledby="apps-how-to">
-      <h2 id="apps-how-to">How to Use Subscript in WhatsApp and PowerPoint</h2>
-
-      <h3>Can you use subscript in WhatsApp?</h3>
-      <p>WhatsApp has no subscript button in the chat composer. On most phones, pasted Unicode still displays correctly, CO₂ and H₂O usually look right; very old fonts may show a box for rare characters.</p>
-      <p>Generate subscript here, tap <strong>Copy</strong>, paste in the message field. Full steps: <a href="subscript-in-whatsapp.html">subscript in WhatsApp guide</a>.</p>
-
-      <h3>How do you add subscript or superscript in PowerPoint?</h3>
-      <p>In PowerPoint you can use built in formatting, keyboard shortcuts, the Font dialog, or paste Unicode from this generator. See our full guide: <a href="subscript-in-powerpoint.html">5 methods for subscript and superscript in PowerPoint</a>.</p>
-    </section>
-
-    <section class="content-section seo-section" aria-labelledby="why-use">
-      <h2 id="why-use">Why use Unicode instead of app formatting alone?</h2>
-      <ul>
-        <li>Word or Docs formatting often breaks when you paste into WhatsApp, Gmail, or another editor.</li>
-        <li>Unicode subscript and superscript are real characters, one copy works across many apps.</li>
-        <li>Runs in the browser; no install. Free, no signup.</li>
-        <li>Works offline after the first page load.</li>
-      </ul>
-    </section>
-
-    <section class="content-section seo-section" aria-labelledby="common-mistakes">
-      <h2 id="common-mistakes">What mistakes break paste into apps?</h2>
-      <ul>
-        <li>Using font “subscript” styling instead of Unicode, copy often strips it.</li>
-        <li>Leaving <strong>Numbers Only</strong> off when you only wanted H₂O-style digits subscript.</li>
-        <li>Expecting bold/italic from this tool in plain .txt files (only Word/Docs get that when you enable those checkboxes).</li>
-        <li>Assuming every letter has a Unicode subscript (b, f, and q do not).</li>
-      </ul>
+      <p>Subscript is below the line (H₂O, x₁). Superscript is above (x², ¹). Pick <strong>Subscript</strong> or <strong>Superscript</strong> on the tool before you copy. Comparison table: <a href="subscript-vs-superscript.html">below vs above the line</a>.</p>
     </section>
 
     <section class="content-section seo-section" aria-labelledby="faq">
       <h2 id="faq">Frequently Asked Questions</h2>
       <h3>What is a subscript generator?</h3>
-      <p>It converts plain text into Unicode subscript characters. Paste the result into Word, Google Docs, or any app. The same tool works as a maker, creator, and text converter.</p>
-      <h3>How do I do subscript? How do I type a subscript?</h3>
-      <p>Type your text in the tool, choose <strong>Subscript</strong>, then copy. For chemistry, use Formula mode so H2O becomes H₂O. For Word shortcuts instead, see <a href="word-subscript-superscript.html">how to subscript in Word</a>.</p>
-      <h3>Is this a subscript and superscript generator?</h3>
-      <p>This page focuses on subscript. For exponents and footnotes, open the <a href="superscript-generator.html">superscript generator</a>. For tiny letters, open the <a href="small-text-generator.html">small text generator</a>. You can also switch modes on this tool.</p>
+      <p>It converts plain text into Unicode subscript characters you can paste into Word, Google Docs, or chat. Same tool works as a maker, creator, and text converter.</p>
       <h3>How do I write H2O or CO2 in subscript?</h3>
-      <p>Type H2O or CO2 in the tool, select Formula mode with Numbers Only ON, then click Generate. Copy the output (H₂O or CO₂) and paste it into your document, slide, or chat.</p>
+      <p>Type H2O or CO2, select Formula mode with Numbers Only ON, then Copy. Paste H₂O or CO₂ into your document or message.</p>
       <h3>How do I copy and paste subscript text?</h3>
-      <p>Type or paste your text into the input box, choose <strong>Subscript</strong>, then click <strong>Copy</strong>. The tool converts the characters to Unicode subscript so you can copy and paste them anywhere that supports Unicode.</p>
-      <h3>How do I use subscript text in WhatsApp?</h3>
-      <p>Generate the subscript version of your text here, tap <strong>Copy</strong>, then paste it into your WhatsApp message. WhatsApp does not have a formatting button for subscript, but it displays Unicode subscript characters correctly on modern devices.</p>
+      <p>Type in the input box, choose Subscript, click Copy. The output is Unicode, not app-only styling.</p>
+      <h3>How do I use subscript in WhatsApp?</h3>
+      <p>Generate subscript here, tap Copy, paste in the message field. WhatsApp has no subscript button, but Unicode displays on modern phones. Steps: <a href="subscript-in-whatsapp.html">chat paste guide</a>.</p>
       <h3>Why is there no subscript B or subscript f?</h3>
-      <p>The Unicode standard does not define characters for subscript b, subscript f, or subscript q. To simulate them, use normal letters with formatting in Word or PowerPoint, or combine letters with subscript numbers such as B₁ and fₙ.</p>
-      <h3>How do I make 1 footnote copy and paste?</h3>
-      <p>For footnotes, use the superscript ¹ character rather than subscript ₁. Choose <strong>Superscript</strong> in the tool, type 1, and copy the output to paste as a footnote marker in Word, Google Docs, or PowerPoint.</p>
+      <p>Unicode has no subscript b, f, or q. Use B1 with Formula mode for B₁, or Word formatting for rare letters.</p>
       <h3>Does subscript work in Google Docs?</h3>
-      <p>Yes. Subscript text from this tool pastes correctly in Google Docs. Bold and Italic options apply when pasting there.</p>
+      <p>Yes. Paste from this tool works in Docs. Bold and Italic checkboxes apply when pasting there.</p>
       <h3>Are these real Unicode characters?</h3>
-      <p>Yes. Output uses Unicode subscript range U+2080 to U+209C. They are real characters, not images or CSS.</p>
+      <p>Yes. Output uses U+2080 to U+209C. Real characters, not images or CSS tricks.</p>
       <h3>Is this subscript generator free?</h3>
-      <p>Yes. Free to use, runs in the browser, works offline after the first load.</p>
-      <h3>What is subscript font?</h3>
-      <p>Subscript font refers to Unicode subscript characters (₀₉, ₐₑₒ…) that display below the baseline. This tool outputs real Unicode subscript font, not styled text, so it copies and pastes correctly in Word, Excel, and other apps.</p>
-      <h3>How do I add subscript in Excel?</h3>
-      <p>Use this tool to create subscript text, then copy and paste into Excel. The Unicode subscript characters will display correctly in Excel cells.</p>
-      <h3>How do I use subscript in Discord?</h3>
-      <p>Generate subscript text here, copy it, and paste into Discord. Unicode subscript works in Discord messages.</p>
-      <h3>Is the output Unicode or HTML?</h3>
-      <p>This tool outputs <strong>Unicode</strong> characters (real text), not HTML tags like <code>&lt;sub&gt;</code>. Unicode copies correctly into Word, Google Docs, WhatsApp, and most modern apps.</p>
-      <h3>Can I use subscript and superscript together?</h3>
-      <p>Yes. Switch between <strong>Subscript</strong> and <strong>Superscript</strong> on the tool, or convert chemistry with Formula mode (H₂O) and exponents separately (x²). For a dedicated superscript explainer, see <a href="what-is-superscript.html">what is superscript</a>.</p>
-      <h3>What is the opposite of subscript?</h3>
-      <p><strong>Superscript</strong> is the opposite, it sits above the baseline (for example x² or footnote ¹). Read <a href="what-is-superscript.html">what is superscript</a> or <a href="subscript-vs-superscript.html">subscript vs superscript</a>.</p>
+      <p>Yes. Free, browser-based, works offline after first load.</p>
+      <h3>Should I use Word formatting or Unicode?</h3>
+      <p>Use Word or Docs buttons when the file stays in one app. Use Unicode when you paste into chat, email, or slides without reformatting.</p>
       <h3>How do I add subscript in PowerPoint?</h3>
-      <p>Use <strong>Ctrl + =</strong> (subscript) or <strong>Ctrl + Shift + +</strong> (superscript) after selecting text, or paste Unicode from this generator. Full steps: <a href="subscript-in-powerpoint.html">subscript in PowerPoint guide</a>.</p>
+      <p>Use Ctrl + = after selecting text, or paste Unicode from this tool. Full steps: <a href="subscript-in-powerpoint.html">slides paste guide</a>.</p>
     </section>
   </div>
 
@@ -635,7 +461,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       </span>
       <div class="contact-cta-text">
-        <p class="contact-cta-headline">Ready to use the subscript generator?</p>
+        <p class="contact-cta-headline">Ready to use the subscript text generator?</p>
         <p class="contact-cta-desc">Type CO2 or H2O, copy Unicode subscript, paste anywhere. No signup.</p>
       </div>
       <a href="/" class="contact-cta-btn">Use the Tool <svg class="contact-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>

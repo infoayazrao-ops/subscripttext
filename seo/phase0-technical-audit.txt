@@ -1,0 +1,12 @@
+Phase 0.6 technical SEO audit (codebase review)
+
+Canonicals: All 25 HTML pages have self-referencing canonical URLs — PASS
+Viewport: All pages include width=device-width — PASS
+Crawl depth: All guides linked from homepage related-guides nav (1-2 clicks) — PASS
+Mobile tool: textarea inputs present; test manually on device after deploy
+Indexation: GSC verification meta present on index.html
+Core Web Vitals: Run PageSpeed Insights post-deploy (manual)
+Blocking issues found: none in repo; proceed Batch 1
+
+FAQ schema policy: no new FAQPage; leave index.html existing block
+HowTo removal: co2-h2o, numbers boards — removed by Batch 3

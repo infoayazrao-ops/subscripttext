@@ -1,0 +1,15 @@
+Batch 1 parallel backlink targets (homepage / subscript generator owner page)
+Track referring domains in GSC Links after outreach.
+
+1. Unicode Consortium — link from resource page or forum post about subscript block U+2080
+2. MERLOT.org — submit tool as chemistry/math OER resource
+3. ChemEd X (chemedx.org) — teacher blog comment or resource share for H2O/CO2 paste workaround
+4. Reddit r/chemistry or r/Teachers — answer "how to type subscript in WhatsApp/Docs" with tool link (benefit anchor)
+5. Quora — "How do I write CO2 subscript in Google Docs?" contextual answer
+6. Edtech teacher blogs (e.g. Ditch That Textbook style lists) — pitch Unicode paste tool for slides
+7. Wikipedia Talk or external links discussion — only if genuinely relevant (low priority)
+8. Font/typography resource lists (copy paste unicode tools roundups)
+9. Stack Exchange Chemistry — answer with paste tool when Unicode question fits
+10. Classroom chemistry handout sites — offer free embed/link to formula board page
+
+Anchor rule: use benefit phrases on non-owner pages; exact "subscript generator" only when linking to /.

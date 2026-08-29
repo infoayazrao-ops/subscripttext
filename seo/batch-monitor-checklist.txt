@@ -1,0 +1,16 @@
+Post-deploy monitoring (14-21 days per batch)
+
+Metrics (GSC):
+- Primary query: impressions, clicks, CTR, position
+- Cannibalization: secondary URL impressions on owner query
+- Fan-out H2 query impressions
+- Referring domains (Links report)
+
+Rollback trigger (ALL must hold before revert):
+1. Position drop >5 places on a protecting URL
+2. Click OR impression decline sustained across 2 consecutive 7-day windows
+3. Query has at least ~10 impressions/week (below = noise, do not revert)
+
+Batch 1 watch queries: subscript generator, subscript copy paste, subscript text generator
+Batch 1 deploy date: record when homepage ships
+Next batch earliest: 14 days after Batch 1 deploy if no rollback
